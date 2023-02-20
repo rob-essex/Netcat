@@ -25,7 +25,7 @@ class NetCat:
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     def run(self):
-        if self.args.listen()
+        if self.args.listen():
             self.listen()
         else:
             self.send()
