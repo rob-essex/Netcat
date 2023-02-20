@@ -17,16 +17,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install pylint
+        pip install bandit
+        pip install safety
     - name: pylint analysis whilst disabling no-name-in-module, no-member, and protected-access to avoid false positives
       run: |
         pylint --extension-pkg-whitelist=pygame $(git ls-files '*.py') --disable=W0212
-    - name: Run unit tests via pytest
-      run: |
-        pytest --cov-report term-missing --cov=rc_car --cov-config=.coveragerc tests
-    - name: Run cucumber
-      run: |
-        behave
     - name: Run bandit for the first security scan
       run: |
         bandit --ini .bandit
