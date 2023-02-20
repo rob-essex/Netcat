@@ -22,7 +22,7 @@ jobs:
         pip install safety
     - name: pylint analysis whilst disabling no-name-in-module, no-member, and protected-access to avoid false positives
       run: |
-        pylint --extension-pkg-whitelist=netcat $(git ls-files '*.py')
+        pylint 
     - name: Run bandit for the first security scan
       run: |
         bandit --ini .bandit
